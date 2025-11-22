@@ -8,11 +8,31 @@ importers:
 
   .:
     dependencies:
+      '@faker-js/faker':
+        specifier: ^10.1.0
+        version: 10.1.0
+      bcryptjs:
+        specifier: ^3.0.3
+        version: 3.0.3
+      dayjs:
+        specifier: ^1.11.19
+        version: 1.11.19
       pg:
         specifier: ^8.16.3
         version: 8.16.3
 
 packages:
+
+  '@faker-js/faker@10.1.0':
+    resolution: {integrity: sha512-C3mrr3b5dRVlKPJdfrAXS8+dq+rq8Qm5SNRazca0JKgw1HQERFmrVb0towvMmw5uu8hHKNiQasMaR/tydf3Zsg==}
+    engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
+
+  bcryptjs@3.0.3:
+    resolution: {integrity: sha512-GlF5wPWnSa/X5LKM1o0wz0suXIINz1iHRLvTS+sLyi7XPbe5ycmYI3DlZqVGZZtDgl4DmasFg7gOB3JYbphV5g==}
+    hasBin: true
+
+  dayjs@1.11.19:
+    resolution: {integrity: sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==}
 
   pg-cloudflare@1.2.7:
     resolution: {integrity: sha512-YgCtzMH0ptvZJslLM1ffsY4EuGaU0cx4XSdXLRFae8bPP4dS5xL1tNB3k2o/N64cHJpwU7dxKli/nZ2lUa5fLg==}
@@ -73,6 +93,12 @@ packages:
     engines: {node: '>=0.4'}
 
 snapshots:
+
+  '@faker-js/faker@10.1.0': {}
+
+  bcryptjs@3.0.3: {}
+
+  dayjs@1.11.19: {}
 
   pg-cloudflare@1.2.7:
     optional: true
