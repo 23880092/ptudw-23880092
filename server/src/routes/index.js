@@ -3,6 +3,7 @@ const router = express.Router();
 const productRouter = require('./productRouter');
 
 router.use("/products", productRouter);
+router.use("/categories", require("./categoryRouter"));
 router.use("/auth", require("./authRouter"));
 //Sau nay co them categoryRouter thi chi can import va su dung tuong tu nhu tren
 
