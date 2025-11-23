@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { http } from "../lib/http";
+import StarRating from "./StarRating";
 
 export default function ProductDescription() {
   const { id } = useParams();
-  const [ product, setProduct ] = useState(null);
-  const [ loading, setLoading ] = useState(true);
-  const [ error, setError ] = useState(null);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let canceled = false;
@@ -53,17 +54,7 @@ export default function ProductDescription() {
             <div className="container">
               <div className="row s_product_inner">
                 <div className="col-lg-6">
-                  <div className="s_Product_carousel">
-                    <div className="single-prd-item">
-                      <img className="img-fluid" src="img/category/s-p1.jpg" />
-                    </div>
-                    <div className="single-prd-item">
-                      <img className="img-fluid" src="img/category/s-p1.jpg" />
-                    </div>
-                    <div className="single-prd-item">
-                      <img className="img-fluid" src="img/category/s-p1.jpg" />
-                    </div>
-                  </div>
+                  {/* <ImageGallery images={product.Images} /> */}
                 </div>
                 <div className="col-lg-5 offset-lg-1">
                   <div className="s_product_text">
@@ -81,9 +72,7 @@ export default function ProductDescription() {
                         </a>
                       </li>
                     </ul>
-                    <p>
-                      {product.summary}
-                    </p>
+                    <p>{product.summary}</p>
                     <div className="product_count">
                       <label htmlFor="qty">Quantity:</label>
                       <input
@@ -144,7 +133,7 @@ export default function ProductDescription() {
                     Description
                   </a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a
                     className="nav-link"
                     id="profile-tab"
@@ -156,8 +145,8 @@ export default function ProductDescription() {
                   >
                     Specification
                   </a>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                   <a
                     className="nav-link"
                     id="contact-tab"
@@ -169,7 +158,7 @@ export default function ProductDescription() {
                   >
                     Comments
                   </a>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <a
                     className="nav-link active"
@@ -425,57 +414,57 @@ export default function ProductDescription() {
                         <div className="col-6">
                           <div className="box_total">
                             <h5>Overall</h5>
-                            <h4>4.0</h4>
-                            <h6>(03 Reviews)</h6>
+                            <h4>{product.stars}</h4>
+                            <h6>({product.Reviews.length} Reviews)</h6>
                           </div>
                         </div>
                         <div className="col-6">
                           <div className="rating_list">
-                            <h3>Based on 3 Reviews</h3>
+                            <h3>Based on {product.Reviews.length} Reviews</h3>
                             <ul className="list">
                               <li>
                                 <a href="#">
-                                  5 Star <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" /> 01
+                                  5 Star <StarRating rating={5} />{" "}
+                                  {
+                                    product.Reviews.filter((r) => r.stars === 5)
+                                      .length
+                                  }
                                 </a>
                               </li>
                               <li>
                                 <a href="#">
-                                  4 Star <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" /> 01
+                                  4 Star <StarRating rating={4} />{" "}
+                                  {
+                                    product.Reviews.filter((r) => r.stars === 4)
+                                      .length
+                                  }
                                 </a>
                               </li>
                               <li>
                                 <a href="#">
-                                  3 Star <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" /> 01
+                                  3 Star <StarRating rating={3} />{" "}
+                                  {
+                                    product.Reviews.filter((r) => r.stars === 3)
+                                      .length
+                                  }
                                 </a>
                               </li>
                               <li>
                                 <a href="#">
-                                  2 Star <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" /> 01
+                                  2 Star <StarRating rating={2} />{" "}
+                                  {
+                                    product.Reviews.filter((r) => r.stars === 2)
+                                      .length
+                                  }
                                 </a>
                               </li>
                               <li>
                                 <a href="#">
-                                  1 Star <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" />
-                                  <i className="fa fa-star" /> 01
+                                  1 Star <StarRating rating={1} />{" "}
+                                  {
+                                    product.Reviews.filter((r) => r.stars === 1)
+                                      .length
+                                  }
                                 </a>
                               </li>
                             </ul>
@@ -483,72 +472,22 @@ export default function ProductDescription() {
                         </div>
                       </div>
                       <div className="review_list">
-                        <div className="review_item">
-                          <div className="media">
-                            <div className="d-flex">
-                              <img src="img/product/review-1.png" />
+                        {product.Reviews.map((r) => (
+                          <div className="review_item" key={r.id}>
+                            <div className="media">
+                              {/* <div className="d-flex">
+                                <img src="img/product/review-1.png" />
+                              </div> */}
+                              <div className="media-body">
+                                <h4>
+                                  {r.User.firstName} {r.User.lastName}
+                                </h4>
+                                <StarRating rating={r.stars} />
+                              </div>
                             </div>
-                            <div className="media-body">
-                              <h4>Blake Ruiz</h4>
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div>
+                            <p>{r.review}</p>
                           </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo
-                          </p>
-                        </div>
-                        <div className="review_item">
-                          <div className="media">
-                            <div className="d-flex">
-                              <img src="img/product/review-2.png" />
-                            </div>
-                            <div className="media-body">
-                              <h4>Blake Ruiz</h4>
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo
-                          </p>
-                        </div>
-                        <div className="review_item">
-                          <div className="media">
-                            <div className="d-flex">
-                              <img src="img/product/review-3.png" />
-                            </div>
-                            <div className="media-body">
-                              <h4>Blake Ruiz</h4>
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo
-                          </p>
-                        </div>
+                        ))}
                       </div>
                     </div>
                     <div className="col-lg-6">
