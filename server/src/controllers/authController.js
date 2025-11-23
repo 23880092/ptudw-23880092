@@ -5,6 +5,7 @@ const { User } = require("../models");
 const { Op } = require("sequelize"); //Option lấy từ sequelize
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { addToBlacklist } = require("../utils/tokenBlackList");
 
 controller.register = async (req, res) => {
     // Registration logic here
@@ -99,12 +100,32 @@ controller.login = async (req, res) => {
     return res
         .status(200)
         .json(
-            new ApiResponse(
-                200,
+            new ApiResponse(200,
                 { user: userResponse, token },
                 "Dang nhap thanh cong"
             )
         );
+};
+
+
+controller.logout = (req, res, next) => {
+  try {
+    // Lay token tu middleware authenticateToken
+    const token = req.token;
+
+    if (!token) {
+      throw new ApiError(400, "Thieu token");
+    }
+
+    // Cho token vao blacklist
+    addToBlacklist(token);
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, null, "Dang xuat thanh cong"));
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = controller;
