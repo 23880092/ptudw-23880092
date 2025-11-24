@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { http } from "../lib/http";
 import StarRating from "./StarRating";
+import ImageGallery from "./ImageGallery";
 
 export default function ProductDescription() {
   const { id } = useParams();
@@ -43,6 +44,21 @@ export default function ProductDescription() {
     };
   }, [id]);
 
+  // product là object nhận từ API
+  const images =
+    Array.isArray(product?.Images) && product.Images.length > 0
+      ? product.Images
+      : product?.imagePath
+      ? [
+          {
+            id: product.id,
+            imagePath: product.imagePath,
+            altText: product.name,
+          },
+        ]
+      : [];
+
+
   return (
     <>
       {loading && <div>Loading...</div>}
@@ -53,9 +69,11 @@ export default function ProductDescription() {
           <div className="product_image_area">
             <div className="container">
               <div className="row s_product_inner">
-                <div className="col-lg-6">
-                  {/* <ImageGallery images={product.Images} /> */}
-                </div>
+                {product && (
+                  <div className="col-lg-6">
+                    <ImageGallery images={images}/>
+                  </div>
+                )}
                 <div className="col-lg-5 offset-lg-1">
                   <div className="s_product_text">
                     <h3>{product.name}</h3>

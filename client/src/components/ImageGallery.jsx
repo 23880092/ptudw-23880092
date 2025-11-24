@@ -1,3 +1,7 @@
+import { useMemo, useState, useRef, useEffect } from "react";
+// Import các component của Swiper React
+import { Swiper, SwiperSlide } from "swiper/react";
+
 // Import các module cần thiết của Swiper
 // Đây là các tính năng bạn muốn sử dụng như điều hướng, phân trang, tự động chạy...
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -12,7 +16,7 @@ export default function ImageGallery({ images = [] }) {
     <Swiper
       // Đăng ký các module bạn muốn sử dụng
       modules={[Navigation, Pagination, Autoplay]}
-      // Các tuỳ chọn (tương tự như trong Owl Carousel)
+      // Các tùy chọn (tương tự như trong Owl Carousel)
       spaceBetween={30} // Khoảng cách giữa các slide
       slidesPerView={1} // Số slide hiển thị cùng lúc (tương đương 'items')
       loop={true} // Lặp vô tận
@@ -34,7 +38,7 @@ export default function ImageGallery({ images = [] }) {
           <SwiperSlide key={image.id} className="single-prd-item">
             <img
               src={image.imagePath}
-            //   alt={image.name}
+              alt={image.name}
               style={{ width: "100%", display: "block" }}
             />
           </SwiperSlide>

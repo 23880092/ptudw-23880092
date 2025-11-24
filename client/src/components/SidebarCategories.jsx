@@ -49,7 +49,7 @@ export default function SidebarCategories() {
           !error &&
           categories.map((c) => (
             <li className="main-nav-list" key={c.id}>
-              <a href="#">
+              <a href={'/products?category=' + c.id}>
                 {c.name}
                 <span className="number">({c.Products.length})</span>
               </a>

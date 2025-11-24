@@ -5,7 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     const items = [{
       "name": "magna vestibulum aliquet",
-      "imagePath": "/img/product-4.png",
+      "imagePath": "/img/product/p4.jpg",
       "oldPrice": 65.67,
       "price": 17.49,
       "summary": "Donec dapibus. Duis at velit eu est congue elementum.",
@@ -17,7 +17,7 @@ module.exports = {
       "brandId": 5
     }, {
       "name": "nisi volutpat",
-      "imagePath": "/img/product-9.png",
+      "imagePath": "/img/product/p9.jpg",
       "oldPrice": 36.79,
       "price": 77.31,
       "summary": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.",
@@ -29,7 +29,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "maecenas pulvinar lobortis",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 62.02,
       "price": 53.06,
       "summary": "Morbi non quam nec dui luctus rutrum. Nulla tellus.",
@@ -41,7 +41,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "consequat lectus in",
-      "imagePath": "/img/product-2.png",
+      "imagePath": "/img/product/p2.jpg",
       "oldPrice": 82.76,
       "price": 19.87,
       "summary": "Nulla nisl. Nunc nisl.",
@@ -53,7 +53,7 @@ module.exports = {
       "brandId": 5
     }, {
       "name": "id ligula suspendisse",
-      "imagePath": "/img/product-6.png",
+      "imagePath": "/img/product/p6.jpg",
       "oldPrice": 60.9,
       "price": 12.97,
       "summary": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
@@ -65,7 +65,7 @@ module.exports = {
       "brandId": 2
     }, {
       "name": "ultrices mattis",
-      "imagePath": "/img/product-9.png",
+      "imagePath": "/img/product/p9.jpg",
       "oldPrice": 26.87,
       "price": 30.32,
       "summary": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
@@ -77,7 +77,7 @@ module.exports = {
       "brandId": 5
     }, {
       "name": "luctus ultricies",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 38.7,
       "price": 4.58,
       "summary": "Morbi a ipsum. Integer a nibh.",
@@ -89,7 +89,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "aliquam non",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 96.87,
       "price": 48.95,
       "summary": "Sed ante. Vivamus tortor. Duis mattis egestas metus.",
@@ -101,7 +101,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "eu sapien cursus",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 34.22,
       "price": 22.8,
       "summary": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
@@ -113,7 +113,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "donec diam",
-      "imagePath": "/img/product-2.png",
+      "imagePath": "/img/product/p2.jpg",
       "oldPrice": 98.09,
       "price": 17.06,
       "summary": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
@@ -125,7 +125,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "et ultrices posuere",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 57.54,
       "price": 9.03,
       "summary": "Duis mattis egestas metus. Aenean fermentum.",
@@ -137,7 +137,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "in est",
-      "imagePath": "/img/product-8.png",
+      "imagePath": "/img/product/p8.jpg",
       "oldPrice": 63.04,
       "price": 50.61,
       "summary": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
@@ -149,7 +149,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "orci luctus et",
-      "imagePath": "/img/product-5.png",
+      "imagePath": "/img/product/p5.jpg",
       "oldPrice": 30.77,
       "price": 40.37,
       "summary": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.",
@@ -161,7 +161,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "sagittis sapien cum",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 67.77,
       "price": 63.16,
       "summary": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
@@ -173,7 +173,7 @@ module.exports = {
       "brandId": 2
     }, {
       "name": "eget vulputate ut",
-      "imagePath": "/img/product-7.png",
+      "imagePath": "/img/product/p7.jpg",
       "oldPrice": 78.99,
       "price": 75.89,
       "summary": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.",
@@ -185,7 +185,7 @@ module.exports = {
       "brandId": 5
     }, {
       "name": "tempus vivamus in",
-      "imagePath": "/img/product-5.png",
+      "imagePath": "/img/product/p5.jpg",
       "oldPrice": 40.38,
       "price": 13.45,
       "summary": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
@@ -197,7 +197,7 @@ module.exports = {
       "brandId": 4
     }, {
       "name": "at feugiat non",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 43.68,
       "price": 10.08,
       "summary": "Nulla mollis molestie lorem. Quisque ut erat.",
@@ -209,7 +209,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "volutpat sapien arcu",
-      "imagePath": "/img/product-9.png",
+      "imagePath": "/img/product/p9.jpg",
       "oldPrice": 6.28,
       "price": 87.42,
       "summary": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
@@ -221,7 +221,7 @@ module.exports = {
       "brandId": 1
     }, {
       "name": "vulputate ut",
-      "imagePath": "/img/product-7.png",
+      "imagePath": "/img/product/p7.jpg",
       "oldPrice": 79.96,
       "price": 67.47,
       "summary": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
@@ -233,7 +233,7 @@ module.exports = {
       "brandId": 2
     }, {
       "name": "praesent lectus vestibulum",
-      "imagePath": "/img/product-7.png",
+      "imagePath": "/img/product/p7.jpg",
       "oldPrice": 95.76,
       "price": 31.7,
       "summary": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
@@ -245,7 +245,7 @@ module.exports = {
       "brandId": 2
     }, {
       "name": "turpis enim",
-      "imagePath": "/img/product-9.png",
+      "imagePath": "/img/product/p9.jpg",
       "oldPrice": 28.84,
       "price": 15.06,
       "summary": "Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
@@ -257,7 +257,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "velit vivamus",
-      "imagePath": "/img/product-9.png",
+      "imagePath": "/img/product/p9.jpg",
       "oldPrice": 41.25,
       "price": 43.03,
       "summary": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
@@ -269,7 +269,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "convallis nunc proin",
-      "imagePath": "/img/product-3.png",
+      "imagePath": "/img/product/p3.jpg",
       "oldPrice": 60.03,
       "price": 64.2,
       "summary": "Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
@@ -281,7 +281,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "placerat ante",
-      "imagePath": "/img/product-6.png",
+      "imagePath": "/img/product/p6.jpg",
       "oldPrice": 56.0,
       "price": 58.86,
       "summary": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
@@ -293,7 +293,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "pharetra magna",
-      "imagePath": "/img/product-6.png",
+      "imagePath": "/img/product/p6.jpg",
       "oldPrice": 38.81,
       "price": 81.54,
       "summary": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
@@ -305,7 +305,7 @@ module.exports = {
       "brandId": 4
     }, {
       "name": "platea dictumst",
-      "imagePath": "/img/product-1.png",
+      "imagePath": "/img/product/p1.jpg",
       "oldPrice": 27.85,
       "price": 33.48,
       "summary": "Nulla ut erat id mauris vulputate elementum. Nullam varius.",
@@ -317,7 +317,7 @@ module.exports = {
       "brandId": 5
     }, {
       "name": "consequat in consequat",
-      "imagePath": "/img/product-1.png",
+      "imagePath": "/img/product/p1.jpg",
       "oldPrice": 62.1,
       "price": 11.11,
       "summary": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
@@ -329,7 +329,7 @@ module.exports = {
       "brandId": 6
     }, {
       "name": "molestie hendrerit",
-      "imagePath": "/img/product-4.png",
+      "imagePath": "/img/product/p4.jpg",
       "oldPrice": 59.24,
       "price": 62.12,
       "summary": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
@@ -341,7 +341,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "adipiscing molestie",
-      "imagePath": "/img/product-5.png",
+      "imagePath": "/img/product/p5.jpg",
       "oldPrice": 87.56,
       "price": 81.5,
       "summary": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
@@ -353,7 +353,7 @@ module.exports = {
       "brandId": 3
     }, {
       "name": "amet eleifend",
-      "imagePath": "/img/product-2.png",
+      "imagePath": "/img/product/p2.jpg",
       "oldPrice": 13.19,
       "price": 71.66,
       "summary": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",

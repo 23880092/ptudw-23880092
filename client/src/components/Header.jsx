@@ -21,7 +21,7 @@ export default function Header() {
           <div className="container">
             {/* Brand and toggle get grouped for better mobile display */}
             <a className="navbar-brand logo_h" href="index.html">
-              <img src="img/logo.png" />
+              <img src="/img/logo.png" />
             </a>
             <button
               className="navbar-toggler"

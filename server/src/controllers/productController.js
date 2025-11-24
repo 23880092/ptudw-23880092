@@ -153,8 +153,7 @@ controller.getProductById = async (req, res) => {
     include: [
       {
         model: Image,
-        attributes: ["id", "imagePath"],
-        orderBy: [["displayOrder", "ASC"]],
+        attributes: ["id", "name", "imagePath"],
       },
       {
         model: Review,
