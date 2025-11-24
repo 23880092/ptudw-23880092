@@ -21,6 +21,7 @@ export default function ProductList() {
   const page = searchParams.get("page") || 1;
   const min = Number(searchParams.get("min")) || 0;
   const max = Number(searchParams.get("max")) || 100;
+  const q = searchParams.get("q") || "";
   const [priceRange, setPriceRange] = useState([min, max]);
 
   // /products?category=1 => /products?categoryId=1
@@ -28,13 +29,14 @@ export default function ProductList() {
     const p = new URLSearchParams();
     p.set("limit", limit);
     p.set("page", page);
+    if (q) p.set("search", q);
     if (category) p.set("categoryId", category);
     if (sort) p.set("sort", sort);
     if (min) p.set("minPrice", min);
     if (max) p.set("maxPrice", max);
 
     return p.toString();
-  }, [category, sort, limit, page, min, max]);
+  }, [q, category, sort, limit, page, min, max]);
 
   function handleSortChange(value) {
     const next = new URLSearchParams(searchParams.toString());
