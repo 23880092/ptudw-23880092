@@ -19,6 +19,9 @@ export default function ProductList() {
   const category = searchParams.get("category") || "";
   const sort = searchParams.get("sort") || "";
   const page = searchParams.get("page") || 1;
+  const min = Number(searchParams.get("min")) || 0;
+  const max = Number(searchParams.get("max")) || 100;
+  const [priceRange, setPriceRange] = useState([min, max]);
 
   // /products?category=1 => /products?categoryId=1
   const queryString = useMemo(() => {
@@ -27,14 +30,16 @@ export default function ProductList() {
     p.set("page", page);
     if (category) p.set("categoryId", category);
     if (sort) p.set("sort", sort);
+    if (min) p.set("minPrice", min);
+    if (max) p.set("maxPrice", max);
 
     return p.toString();
-  }, [category, sort, limit, page]);
+  }, [category, sort, limit, page, min, max]);
 
   function handleSortChange(value) {
     const next = new URLSearchParams(searchParams.toString());
-    if (!value) next.delete("sort"); 
-    else next.set("sort", value); 
+    if (!value) next.delete("sort");
+    else next.set("sort", value);
     //Reset ve trang 1 khi thay doi sort
     next.set("page", 1);
     setSearchParams(next);
@@ -52,6 +57,18 @@ export default function ProductList() {
     if (!value) next.set("page", 1);
     else next.set("page", value);
     //Reset ve trang 1 khi thay doi sort
+    setSearchParams(next);
+  }
+
+  function handlePriceRangeChange(value) { //value la mang [min, max]
+    setPriceRange(value);
+    const next = new URLSearchParams(searchParams.toString());
+    if (value[0] === null) next.delete("min");
+    else next.set("min", String(value[0]));
+    if (value[1] === null) next.delete("max");
+    else next.set("max", String(value[1]));
+
+    next.set("page", 1);
     setSearchParams(next);
   }
 
@@ -97,7 +114,9 @@ export default function ProductList() {
         <div className="row">
           <div className="col-xl-3 col-lg-4 col-md-5">
             <SidebarCategories />
-            <SidebarFilter />
+            <SidebarFilter 
+                priceRange={priceRange} 
+                onChange={handlePriceRangeChange} />
           </div>
           <div className="col-xl-9 col-lg-8 col-md-7">
             {loading && <div>Loading... </div>}
@@ -105,14 +124,15 @@ export default function ProductList() {
             {!loading && !error && (
               <>
                 {/* Start Filter Bar */}
-                <FilterBar sort={sort} 
-                           onSortChange={handleSortChange} 
-                           limit={limit} 
-                           onLimitChange={handleLitmitChange}
-                           page = {page}
-                           totalPages={totalPages} 
-                           onPageChange={handlePageChange} 
-                           />
+                <FilterBar
+                  sort={sort}
+                  onSortChange={handleSortChange}
+                  limit={limit}
+                  onLimitChange={handleLitmitChange}
+                  page={page}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
                 {/* End Filter Bar */}
                 {/* Start Best Seller */}
                 <section className="lattest-product-area pb-40 category-list">
@@ -130,14 +150,15 @@ export default function ProductList() {
                 </section>
                 {/* End Best Seller */}
                 {/* Start Filter Bar */}
-                <FilterBar sort={sort} 
-                           onSortChange={handleSortChange} 
-                           limit={limit} 
-                           onLimitChange={handleLitmitChange}
-                           page = {page}
-                           totalPages={totalPages} 
-                           onPageChange={handlePageChange} 
-                           />
+                <FilterBar
+                  sort={sort}
+                  onSortChange={handleSortChange}
+                  limit={limit}
+                  onLimitChange={handleLitmitChange}
+                  page={page}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
                 {/* End Filter Bar */}
               </>
             )}

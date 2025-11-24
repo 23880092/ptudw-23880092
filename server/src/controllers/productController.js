@@ -74,19 +74,20 @@ controller.getAllProducts = async (req, res) => {
   }
 
   //Loc theo gia
+  options.where.price = {};
   if (minPrice) {
     if (isNaN(minPrice)) {
       throw new ApiError(400, "minPrice phai la so");
     }
     minPrice = parseFloat(minPrice); // gán đúng biến
-    options.where.price = { [Op.gte]: minPrice };
+    options.where.price[Op.gte] = minPrice ;
   }
   if (maxPrice) {
     if (isNaN(maxPrice)) {
       throw new ApiError(400, "maxPrice phai la so");
     }
     maxPrice = parseFloat(maxPrice);
-    options.where.price = { [Op.lte]: maxPrice };
+    options.where.price[Op.lte] = maxPrice ;
   }
 
   //Sorting
