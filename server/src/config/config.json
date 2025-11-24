@@ -1,10 +1,16 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "ptudw_project_2025",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "ptudw",
+    "password": "PDVcgBvPdBkmVrjz6IQH7Q9lKKYmltcZ",
+    "database": "ptudw_db_1s1i",
+    "host": "dpg-d4hn2hbuibrs73dnqh0g-a.oregon-postgres.render.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "postgres",
@@ -14,10 +20,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "username",
-    "password": "password",
-    "database": "databasee",
-    "host": "host",
+    "username": "ptudw",
+    "password": "PDVcgBvPdBkmVrjz6IQH7Q9lKKYmltcZ",
+    "database": "ptudw_db_1s1i",
+    "host": "dpg-d4hn2hbuibrs73dnqh0g-a.oregon-postgres.render.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
@@ -27,4 +33,5 @@
     }
   }
 }
+
 
