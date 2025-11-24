@@ -1,7 +1,7 @@
 const controller = {};
 const ApiError = require("../utils/apiError");
 const ApiResponse = require("../utils/apiResponse");
-const { Product, Category, Tag, Image, Review, User} = require("../models");
+const { Product, Category, Tag, Image, Review, User } = require("../models");
 const { Op } = require("sequelize"); //Option lấy từ sequelize
 
 controller.getAllProducts = async (req, res) => {
@@ -13,8 +13,7 @@ controller.getAllProducts = async (req, res) => {
     maxPrice,
     page = 1,
     limit = 10,
-    sortBy = "price",
-    sortOrder = "asc",
+    sort = "newest ",
   } = req.query;
   //page = 1, limt = 10 để phân trang
   //sortBy = "price", sortOrder = "asc" để sắp xếp giá tăng dần
@@ -27,8 +26,6 @@ controller.getAllProducts = async (req, res) => {
     where: {},
     limit: limitNum,
     offset: offset,
-    order: [[sortBy, sortOrder.toUpperCase()]], //Sắp xếp
-
     include: [
       {
         model: Category,
@@ -93,18 +90,20 @@ controller.getAllProducts = async (req, res) => {
   }
 
   //Sorting
-  const validSortByFields = ["price", "name", "createdAt"];
-  const validSortOrder = ["asc", "desc"];
-  if (
-    validSortByFields.includes(sortBy) &&
-    validSortOrder.includes(sortOrder)
-  ) {
-    options.order = [[sortBy, sortOrder.toUpperCase()]];
+  const validSortByFields = {
+    newest: { sortBy: "createdAt", sortOrder: "DESC" },
+    price_asc: { sortBy: "price", sortOrder: "ASC" }, 
+    price_desc: { sortBy: "price", sortOrder: "DESC" },
+    name_asc: { sortBy: "name", sortOrder: "ASC" },
+    name_desc: { sortBy: "name", sortOrder: "DESC" },
+  };
+
+  if (Object.keys(validSortByFields).includes(sort)) {
+    const validSort = validSortByFields[sort]; 
+    options.order = [[validSort.sortBy, validSort.sortOrder]];
   } else {
     //throw new ApiError(400, "Thuoc tinh sort khong hop le");
-    sortBy = "price";
-    sortOrder = "asc";
-    options.order = [["price", "ASC"]]; //Mặc định sắp xếp theo giá tăng dần
+    options.order = [["createdAt", "desc"]]; 
   }
 
   //truy van lay san pham
@@ -132,8 +131,7 @@ controller.getAllProducts = async (req, res) => {
       maxPrice: maxPrice || null,
       limit: limitNum,
       page: pageNum,
-      sortBy: sortBy,
-      sortOrder: sortOrder,
+      sort: sort,
     },
   };
   res
@@ -157,9 +155,8 @@ controller.getProductById = async (req, res) => {
       },
       {
         model: Review,
-        attributes: ["id", "review", "stars", "productId", "userId" ],
-        include: [{model: User, attributes: ['id', 'firstName', 'lastName']}
-        ],
+        attributes: ["id", "review", "stars", "productId", "userId"],
+        include: [{ model: User, attributes: ["id", "firstName", "lastName"] }],
       },
       {
         model: Category,
