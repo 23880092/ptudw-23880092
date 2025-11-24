@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 import { Route } from "react-router-dom";
 import RoutesDef from "./RoutesDef.jsx";
 
